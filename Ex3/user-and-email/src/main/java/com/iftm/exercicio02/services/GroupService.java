@@ -88,4 +88,12 @@ public class GroupService {
             return "Group ID " + id + " not found!";
     }
 
+    public List<User> findUsersByGroupId(Long groupId) {
+        return repository.findUsersByGroupId(groupId);
+    }
+
+    public List<Group> findByNameContaining(String pwd) {
+        return repository.findByNameContaining(pwd);
+    }
+
 }

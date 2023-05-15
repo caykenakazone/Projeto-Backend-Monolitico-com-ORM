@@ -11,6 +11,5 @@ public interface EmailRepository extends JpaRepository<Email, Long> {
 
     List<Email> findByUserId(Long userId);
 
-
 }
 

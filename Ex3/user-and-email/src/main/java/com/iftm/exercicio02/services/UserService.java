@@ -62,7 +62,7 @@ public class UserService {
         if (dbUser.isPresent() && verifyUser(userVO)) {
             var user = DozerMapper.parseObject(userVO, User.class);
 
-            // Atualizar emails do usuário
+
             if (userVO.getEmailIds() != null) {
                 var emails = emailRepository.findAllById(userVO.getEmailIds());
                 user.setEmails(emails);
@@ -70,7 +70,6 @@ public class UserService {
                 user.setEmails(null);
             }
 
-            // Atualizar grupos do usuário
             if (userVO.getGroupIds() != null) {
                 var groups = groupRepository.findAllById(userVO.getGroupIds());
                 user.setGroups(groups);

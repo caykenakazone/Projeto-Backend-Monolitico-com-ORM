@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import com.iftm.exercicio02.models.Group;
+import com.iftm.exercicio02.models.User;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -35,6 +36,8 @@ public class User implements Serializable {
     @JsonManagedReference
     private List<Email> emails = new ArrayList<>();
 
+    public User() {
+    }
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_group", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "group_id"))

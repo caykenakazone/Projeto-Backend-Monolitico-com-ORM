@@ -12,6 +12,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.print.attribute.standard.Media;
 import java.util.List;
 
 @RestController
@@ -24,7 +25,9 @@ public class UserController {
 
     // READ - HTTP GET
     // Endpoint: http://localhost:8080/api/v1/user
-    @GetMapping
+    @GetMapping(produces = {MediaType.APPLICATION_JSON,
+                            MediaType.APPLICATION_XML,
+                            MediaType.APPLICATION_YML})
     @Operation(
         summary = "Find all users.", description = "Find all users.", tags = {"User"},
         responses = {
@@ -45,7 +48,9 @@ public class UserController {
 
     // READ - HTTP GET
     // Endpoint: http://localhost:8080/api/v1/user/ID
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}", produces = { MediaType.APPLICATION_JSON,
+            MediaType.APPLICATION_XML,
+            MediaType.APPLICATION_YML })
     @Operation(
         summary = "Find a user by ID.", description = "Find a user by ID.", tags = {"User"},
         responses = {
@@ -69,7 +74,9 @@ public class UserController {
     // USERS BY GROUP NAME - HTTP GET
     // Endpoint: http://localhost:8080/api/v1/user/group/NOME_DO_GRUPO
 
-    @GetMapping("group/{name}")
+    @GetMapping(value = "group/{name}", produces = { MediaType.APPLICATION_JSON,
+            MediaType.APPLICATION_XML,
+            MediaType.APPLICATION_YML })
     @Operation(
         summary = "Find a user by Group.", description = "Find a user by Group.", tags = {"User"},
         responses = {
@@ -92,7 +99,12 @@ public class UserController {
 
     // CREATE - HTTP POST
     // Endpoint: http://localhost:8080/api/v1/user
-    @PostMapping
+    @PostMapping(consumes = { MediaType.APPLICATION_JSON,
+            MediaType.APPLICATION_XML,
+            MediaType.APPLICATION_YML},
+            produces = { MediaType.APPLICATION_JSON,
+                    MediaType.APPLICATION_XML,
+                    MediaType.APPLICATION_YML})
     @Operation(
         summary = "Create a user.", description = "Create a user.", tags = {"User"},
         responses = {
@@ -113,7 +125,12 @@ public class UserController {
 
     // UPDATE - HTTP PUT
     // Endpoint: http://localhost:8080/api/v1/user
-    @PutMapping
+    @PostMapping(consumes = { MediaType.APPLICATION_JSON,
+            MediaType.APPLICATION_XML,
+            MediaType.APPLICATION_YML},
+            produces = { MediaType.APPLICATION_JSON,
+                    MediaType.APPLICATION_XML,
+                    MediaType.APPLICATION_YML})
     @Operation(
         summary = "Update a user.", description = "Update a user.", tags = {"User"},
         responses = {
