@@ -1,23 +1,31 @@
 package com.iftm.exercicio02.data.vo;
 
+import com.iftm.exercicio02.models.User;
+
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class GroupVO implements Serializable {
 
     private Long id;
     private String name;
-    private String description;
+    private String code;
+    private String link;
+
+    private List<User> users = new ArrayList<>();
+
 
     public GroupVO() {
     }
 
-    public GroupVO(Long id, String name, String description) {
-        this.id = id;
+    public GroupVO(String name, String code, String link, List<User> users) {
         this.name = name;
-        this.description = description;
+        this.code = code;
+        this.link = link;
+        this.users = users;
     }
-
     public Long getId() {
         return id;
     }
@@ -34,25 +42,41 @@ public class GroupVO implements Serializable {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getCode() {
+        return code;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
         GroupVO groupVO = (GroupVO) o;
-        return Objects.equals(id, groupVO.id) && Objects.equals(name, groupVO.name) && Objects.equals(description, groupVO.description);
+        return Objects.equals(id, groupVO.id) && Objects.equals(name, groupVO.name) && Objects.equals(code, groupVO.code) && Objects.equals(link, groupVO.link) && Objects.equals(users, groupVO.users);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description);
+        return Objects.hash(id, name, code, link, users);
     }
 
     @Override
@@ -60,7 +84,9 @@ public class GroupVO implements Serializable {
         return "GroupVO{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
+                ", code='" + code + '\'' +
+                ", link='" + link + '\'' +
+                ", users=" + users +
                 '}';
     }
 }

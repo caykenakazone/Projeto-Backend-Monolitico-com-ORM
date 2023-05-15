@@ -102,15 +102,12 @@ public class UserService {
         return false;
     }
 
-    public List<UserVO> findByIdade(int idade) {
-        var users = userRepository.findByIdade(idade);
-        var usersVO = DozerMapper.parseListObject(users, UserVO.class);
-        return usersVO;
+    public List<UserVO> findByFirstName(String firstName) {
+        List<User> users = userRepository.findByFirstName(firstName);
+        return DozerMapper.parseListObject(users, UserVO.class);
     }
 
-    public List<UserVO> findByFirstNameAndLastName(String firstName, String lastName) {
-        var users = userRepository.findByFirstNameAndLastName(firstName, lastName);
-        var usersVO = DozerMapper.parseListObject(users, UserVO.class);
-        return usersVO;
+    public User findByFullNameAndUserName(String firstName, String lastName, String userName) {
+        return userRepository.findByFullNameAndUserName(firstName, lastName, userName);
     }
 }
