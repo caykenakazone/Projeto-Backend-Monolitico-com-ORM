@@ -1,4 +1,4 @@
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gfinfo.com.br%2Ftag%2Farquitetura-de-microsservicos-em-malha%2F&psig=AOvVaw0POMbd9-AqxmmAJXX_S3QG&ust=1709952241019000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKi2-MfS44QDFQAAAAAdAAAAABAD" width="900px" height="500px">
+<img src="https://www.gfinfo.com.br/wp-content/uploads/2023/07/arquitetura.png" width="900px" height="500px">
 
 # Projeto Monolítico com ORM
 Repositório para documentação da matéria de Projeto Monolítico com ORM, fiz a implementação de um pequeno projeto que teve diferentes etapas e configurações.
